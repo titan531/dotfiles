@@ -1,0 +1,25 @@
+[general]
+import = ["./themes/everforest_dark.toml"]
+live_config_reload = true
+
+[window]
+decorations = "Transparent"
+dynamic_title = true
+dynamic_padding = false
+opacity = 1
+blur = false
+dimensions = { columns = 125, lines = 30 }
+
+[window.padding]
+x = 5
+y = 5
+
+[font]
+size = 14.0
+normal = { family="", style="Regular" } 
+bold = { family="", style="Bold" } 
+italic = { family="", style="Italic" } 
+bold_italic = { family="", style="bold italic" } 
+
+
+

@@ -1,0 +1,115 @@
+add_newline = false
+
+format = """
+$os\
+$username\
+$hostname\
+$directory\
+[ > ](bold fg:blue)\
+"""
+
+right_format= """
+$status\
+$git_branch\
+$git_status\
+$python\
+$golang\
+$nodejs\
+$rust\
+$docker_context\
+$time\
+"""
+
+[os]
+format = '[$symbol]($style)'
+style = "bold fg:blue"
+disabled = false
+
+[os.symbols]
+Windows = "  "
+Arch = "   "
+Ubuntu = "  "
+Debian = " 🌀 "
+Alpine = "  "
+
+[username]
+style_user = 'fg:green'
+style_root = 'fg:red'
+format = '[   ]($style)'
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = true
+format = 'on [$hostname](bold yellow) '
+trim_at = "."
+disabled = false
+
+[directory]
+style = "bold fg:blue"
+format = '[  $path]($style)'
+truncation_length = 1
+truncation_symbol = "…"
+
+# Customizing the character symbol in the prompt
+[character]
+success_symbol = "[✔](bold green)"
+error_symbol = "[✗](bold red)"
+
+################################################################################
+## GIT
+################################################################################
+[git_branch]
+format = '\[[$symbol$branch]($style)\]'
+symbol = ' '
+style = "bold green"
+
+[git_status]
+conflicted = "⚔️ "
+ahead = "💨${count} "
+behind = "🐢${count} "
+diverged = "🔱 💨${ahead_count} 🐢${behind_count} "
+untracked = "🛤️ ${count} "
+stashed = "📦 "
+modified = "📝${count} "
+staged = "🗃️ ${count} "
+renamed = "📛${count} "
+deleted = "🗑️ ${count} "
+style = "bright-white"
+format = '\[ $all_status$ahead_behind\]'
+
+[git_commit]
+commit_hash_length = 8
+style = "bold white"
+tag_symbol = '🔖 '
+disabled = false
+
+[time]
+time_format = "%T"
+format = "🕙 $time($style) "
+style = "bright-white"
+disabled = true
+
+[status]
+format = '[$symbol$status]($style)'
+error_symbol = "✖"
+success_symbol = "✔"
+style_success = "green"
+style_failure = "red"
+
+[rust]
+symbol =" "
+format ="[$symbol($version )]($style)"
+detect_extensions = [ "rs" ]
+detect_files = [ "Cargo.toml","main.rs" ]
+
+[golang]
+symbol = " "
+style = "bold fg:blue"
+format = '[ $symbol ($version) ]($style)'
+
+[nodejs]
+symbol = " "
+style = "bold fg:green"
+format = '[ $symbol ($version) ]($style)'
+
